@@ -6,5 +6,8 @@ import { GifsService } from 'src/app/gifs/services/gifs.service';
     templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent {
+    get history() {
+        return this.gifService.history;
+    }
     constructor(private gifService: GifsService) {}
 }
