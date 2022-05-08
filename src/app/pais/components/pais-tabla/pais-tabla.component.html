@@ -1,0 +1,31 @@
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Bandera</th>
+            <th>Nombre</th>
+            <th>Capital</th>
+            <th>Poblacion</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let country of countries">
+            <td>({{ country.idd.root }}{{ country.idd.suffixes[0] }})</td>
+            <td>
+                <img
+                    [src]="country.flags.svg"
+                    alt="{{ country.name.common }}"
+                    class="img-fluid"
+                    style="max-width: 100px"
+                />
+            </td>
+            <td>{{ country.name.common }}</td>
+            <td>{{ country.capital }}</td>
+            <td>{{ country.population | number }}</td>
+            <td>
+                <a [routerLink]="['/pais', country.cca2]">Ver mas..</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

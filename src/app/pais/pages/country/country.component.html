@@ -1,0 +1,47 @@
+<div *ngIf="!country; else divCountry" class="alert alert-info">
+    Epere por favor ...
+</div>
+<ng-template #divCountry>
+    <div class="row">
+        <div class="col-12">
+            <h1>
+                Pais: <small>{{ country.name.common }}</small>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera:</h3>
+            <img
+                class="img-thumbnail"
+                [src]="country.flags.png"
+                [alt]="country.name.common"
+            />
+        </div>
+        <div class="col">
+            <h3>Informacion</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span>Capital: </span>
+                    <strong>{{ country.capital[0] }}</strong>
+                </li>
+                <li class="list-group-item">
+                    <span>Poblacion: </span>
+                    <strong>{{ country.population | number }}</strong>
+                </li>
+                <li class="list-group-item">
+                    <span>Area: </span>
+                    <strong>{{ country.area | number }} </strong>
+                </li>
+                <li class="list-group-item">
+                    <span>Locacion: </span>
+                    <strong>{{ country.continents[0] }} </strong>
+                </li>
+                <li class="list-group-item">
+                    <span>Zona Horaria: </span>
+                    <strong>{{ country.timezones }} </strong>
+                </li>
+            </ul>
+        </div>
+    </div>
+</ng-template>
